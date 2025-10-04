@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+}
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3; 
+}
+
+.logo-container img {
+    width: 100px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 450px;
+    height: 650px;
+    background-color: #D9D9D954;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 60px;
+    resize: none;
+}
+
+.pay-btn {
+    width: 150px;
+    height: 47px;
+    background-color: #ffc107;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.pay-btn:hover {
+    background-color: #ffb700;
+}
+
+.payment-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.payNow{
+   display: flex;
+   flex-direction: row;
+   margin-left: 15px;
+}
