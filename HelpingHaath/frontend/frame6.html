@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,7 +17,7 @@
 <!-- <form id="loginForm">
   <input id="thaparid" name="email" type="email" placeholder="abc@thapar.edu" required>
   <button type="submit">LOGIN</button>
-</form> -->
+</form> 
 
 <script src="app.js"></script>
 </body>
@@ -80,4 +80,300 @@
     </script>
 </body>
 
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Existing Users – Authentication</title>
+  <link rel="stylesheet" href="frame6.css" />
+  <style>
+    .required { color: red; margin-left: 5px; }
+    .error { color: #c00; font-size: 0.9rem; margin-top: 6px; display:none; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="logo">
+    </div>
+  </header>
+
+  <div class="background-overlay"></div>
+
+  <div class="auth-container">
+    <h2>AUTHENTICATION SCREEN</h2>
+
+    <form id="loginForm">
+      <div class="custom-select">
+        <label for="type">Member Type<span class="required">*</span></label>
+        <select id="type" name="type" required>
+          <option value="Student">Student</option>
+          <option value="TeachingStaff">Teaching Staff</option>
+          <option value="NonTeachingStaff">Non-Teaching Staff</option>
+        </select>
+      </div>
+
+      <label for="thaparid">Thapar ID<span class="required">*</span></label>
+      <input
+        id="thaparid"
+        name="email"
+        type="email"
+        placeholder="abc_beXX@thapar.edu"
+        style="width: 325px;"
+        required
+      />
+      <div id="emailError" class="error">Please use a valid @thapar.edu email.</div>
+
+      <label for="password">Password<span class="required">*</span></label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        name="password"
+        style="width: 325px;"
+        required
+      />
+
+      <div class="button-group" style="margin-top: 12px;">
+        <button type="submit" class="login-btn" style="font-weight: 600;">SUBMIT</button>
+        <button type="reset" style="font-weight: 600;">RESET</button>
+      </div>
+
+      <div class="login-link" style="margin-top: 10px;">
+        Don't have an account? <a href="frame31.html" class="login-btn">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('thaparid');
+      const emailError = document.getElementById('emailError');
+      const thaparRe = /^[^@\s]+@thapar\.edu$/i;
+
+      form.addEventListener('submit', (e) => {
+        emailError.style.display = 'none';
+        if (!thaparRe.test(email.value.trim())) {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          email.focus();
+          return;
+        }
+      });
+    })();
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Existing Users – Authentication</title>
+  <link rel="stylesheet" href="frame6.css" />
+  <style>
+    .required { color: red; margin-left: 5px; }
+    .error { color: #c00; font-size: 0.9rem; margin-top: 6px; display:none; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="logo">
+    </div>
+  </header>
+
+  <div class="background-overlay"></div>
+
+  <div class="auth-container">
+    <h2>AUTHENTICATION SCREEN</h2>
+
+    <form id="loginForm" novalidate>
+      <div class="custom-select">
+        <label for="type">Member Type<span class="required">*</span></label>
+        <select id="type" name="type" required>
+          <option value="Student">Student</option>
+          <option value="TeachingStaff">Teaching Staff</option>
+          <option value="NonTeachingStaff">Non-Teaching Staff</option>
+        </select>
+      </div>
+
+      <label for="thaparid">Thapar ID<span class="required">*</span></label>
+      <input
+        id="thaparid"
+        name="email"
+        type="email"
+        placeholder="abc_beXX@thapar.edu"
+        style="width: 325px;"
+        required
+      />
+      <div id="emailError" class="error">Please use a valid @thapar.edu email.</div>
+
+      <label for="password">Password<span class="required">*</span></label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Password"
+        style="width: 325px;"
+        required
+      />
+
+      <div class="button-group" style="margin-top: 12px;">
+        <button type="submit" class="login-btn" style="font-weight: 600;">SUBMIT</button>
+        <button type="reset" style="font-weight: 600;">RESET</button>
+      </div>
+
+      <div class="login-link" style="margin-top: 10px;">
+        Don't have an account? <a href="frame31.html" class="login-btn">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('thaparid');
+      const emailError = document.getElementById('emailError');
+      const thaparRe = /^[^@\s]+@thapar\.edu$/i;
+
+      form.addEventListener('submit', (e) => {
+        emailError.style.display = 'none';
+        if (!thaparRe.test(email.value.trim())) {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          email.focus();
+        }
+      });
+    })();
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Existing Users – Authentication</title>
+  <link rel="stylesheet" href="frame6.css" />
+  <style>
+    .required { color: red; margin-left: 5px; }
+    .error { color: #c00; font-size: 0.9rem; margin-top: 6px; display:none; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="logo">
+    </div>
+  </header>
+
+  <div class="background-overlay"></div>
+
+  <div class="auth-container">
+    <h2>AUTHENTICATION SCREEN</h2>
+
+    <!-- app.js looks for this form id -->
+    <form id="loginForm" novalidate>
+      <div class="custom-select">
+        <label for="type">Member Type<span class="required">*</span></label>
+        <select id="type" name="type" required>
+          <option value="Student">Student</option>
+          <option value="TeachingStaff">Teaching Staff</option>
+          <option value="NonTeachingStaff">Non-Teaching Staff</option>
+        </select>
+      </div>
+
+      <label for="thaparid">Thapar ID<span class="required">*</span></label>
+      <input
+        id="thaparid"
+        name="email"
+        type="email"
+        placeholder="abc_beXX@thapar.edu"
+        style="width: 325px;"
+        required
+      />
+      <div id="emailError" class="error">Please use a valid @thapar.edu email.</div>
+
+      <label for="password">Password<span class="required">*</span></label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Password"
+        style="width: 325px;"
+        required
+      />
+
+      <div class="button-group" style="margin-top: 12px;">
+        <button type="submit" class="login-btn" style="font-weight: 600;">SUBMIT</button>
+        <button type="reset" style="font-weight: 600;">RESET</button>
+      </div>
+
+      <div class="login-link" style="margin-top: 10px;">
+        Don't have an account? <a href="frame31.html" class="login-btn">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- simple @thapar.edu check -->
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('thaparid');
+      const emailError = document.getElementById('emailError');
+      const thaparRe = /^[^@\s]+@thapar\.edu$/i;
+
+      form.addEventListener('submit', (e) => {
+        emailError.style.display = 'none';
+        if (!thaparRe.test(email.value.trim())) {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          email.focus();
+        }
+      });
+    })();
+  </script>
+
+  <script src="app.js"></script>
+</body>
 </html>
