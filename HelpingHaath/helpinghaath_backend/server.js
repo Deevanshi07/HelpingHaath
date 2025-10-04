@@ -17,6 +17,10 @@ if(!process.env.MONGODB_URI){
   process.exit(1);
 }
 await mongoose.connect(process.env.MONGODB_URI);
+await mongoose.connect(process.env.MONGODB_URI, {
+  serverSelectionTimeoutMS: 15000,
+  tlsAllowInvalidCertificates: true
+});
 
 // Simple models
 const User = mongoose.model('User', new mongoose.Schema({
