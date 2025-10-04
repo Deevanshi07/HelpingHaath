@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Form</title>
-    <link rel="stylesheet" href="frame21.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Form</title>
+  <link rel="stylesheet" href="frame21.css" />
 </head>
-<form id="uploadForm" enctype="multipart/form-data">
-  <input type="file" name="files" multiple required>
-  <button type="submit">Save and Submit</button>
-</form>
-
-<script src="app.js"></script>
-</body>
-
 <body>
-    <div class="upload-container">
-        <form class="upload-form">
-            <h2 class="docs">Upload Documents</h2>
-            <div class="upload-box">
-                <input type="file" id="file" hidden />
-                <label for="file" class="upload-label">Select Documents To Upload</label>
-                <p>or drag & drop</p>
-            </div>
-        </form>
-        <a href="frame33.html" class="login-btn"><button type="submit" class="submit-btn" style="align-items: end;">Save and Submit</button></a>
-    </div>
+  <div class="upload-container">
+    <!-- IMPORTANT: add id and correct enctype -->
+    <form id="uploadForm" class="upload-form" enctype="multipart/form-data">
+      <h2 class="docs">Upload Documents</h2>
+
+      <div class="upload-box">
+        <!-- IMPORTANT: add name="files" and keep id for label -->
+        <input type="file" id="files" name="files" hidden multiple required />
+        <label for="files" class="upload-label">Select Documents To Upload</label>
+        <p>or drag & drop</p>
+      </div>
+
+      <!-- OPTIONAL: show selected filenames -->
+      <ul id="fileList" style="margin-top:10px;"></ul>
+
+      <!-- IMPORTANT: real submit button INSIDE the form; no <a> wrapper -->
+      <button type="submit" class="submit-btn">Save and Submit</button>
+    </form>
+  </div>
+
+  <!-- Load scripts ONCE, at the end -->
+  <script>
+    // small helper to preview selected filenames (optional)
+    const input = document.getElementById('files');
+    const list = document.getElementById('fileList');
+    if (input && list) {
+      input.addEventListener('change', () => {
+        list.innerHTML = [...input.files].map(f => `<li>${f.name}</li>`).join('');
+      });
+      // basic drag&drop (optional)
+      const box = document.querySelector('.upload-box');
+      if (box) {
+        ['dragenter','dragover'].forEach(eName => box.addEventListener(eName, e => { e.preventDefault(); e.stopPropagation(); box.classList.add('drag'); }));
+        ['dragleave','drop'].forEach(eName => box.addEventListener(eName, e => { e.preventDefault(); e.stopPropagation(); box.classList.remove('drag'); }));
+        box.addEventListener('drop', e => {
+          if (e.dataTransfer?.files?.length) {
+            input.files = e.dataTransfer.files;
+            input.dispatchEvent(new Event('change'));
+          }
+        });
+      }
+    }
+  </script>
+  <script src="app.js"></script>
 </body>
 </html>

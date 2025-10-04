@@ -1,6 +1,6 @@
 // HelpingHaath client wiring (frontend <-> backend)
 // 1) Set your deployed backend URL here:
-const API = 'https://<your-api>.onrender.com';
+const API = 'http://localhost:3000';
 
 async function postJSON(url, body) {
   const res = await fetch(url, {
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Upload form (frame21.html) -> id="uploadForm" & input name="files"
+const API = 'http://localhost:3000'; // local testing
+
+document.addEventListener('DOMContentLoaded', () => {
   const uploadForm = document.getElementById('uploadForm');
   if (uploadForm) {
     uploadForm.addEventListener('submit', async (e) => {
@@ -67,10 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const res = await fetch(`${API}/api/upload`, { method: 'POST', body: fd });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Upload failed');
+        // success -> go to thank-you page
         window.location.href = 'frame33.html';
-      } catch (err) { alert(err.message); }
+      } catch (err) {
+        alert(err.message);
+        console.error('upload error:', err);
+      }
     });
   }
+});
+
 
   // Donation button (frame20.html) -> id="donateBtn", fields: donationAmount, donorEmail
   const donateBtn = document.getElementById('donateBtn');
