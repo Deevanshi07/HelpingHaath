@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 100px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section {
+    flex: 2;
+    margin-right: 30px;
+}
+.left-section h2{
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+.card {
+    background-color: #D9D9D954;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 380px;
+    margin-left: 120px;
+}
+
+.text-content p:first-child {
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-top: 130px;
+}
+
+.text-content p:last-child{
+    margin-top: 40px;
+}
+.progress {
+    margin-top: 20px;
+}
+.progress span{
+    margin-left: 120px;
+}
+.progress-bar {
+    width: 600px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 120px;
+}
+
+.progress-fill {
+    width: 60%;
+    height: 100%;
+    background-color: #0047AB;
+}
+
+.back-button-container {
+    text-align: center;
+    margin: 30px 0;
+    margin-left: -620px;
+}
+
+.back-btn {
+    background-color: #D9D9D9;
+    border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 15px 20px;
+}
+
+.back-btn:hover {
+    background-color: #aaa;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.donation-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 450px;
+    height: 600px;
+    margin-right: 90px;
+    margin-top: 50px;
+}
+
+.donate-btn,
+.share-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.donate-btn {
+    background-color: #FFC800;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.share-btn {
+    background-color: #FFC800;
+    color: black;
+}
+
+.donation-info {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.donation-info:hover {
+    text-decoration: underline;
+}
+
+.donors-list p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.donors-list img {
+    margin-right: 10px;
+}
+
+.words-support {
+    margin-top: 40px;
+}
+
+.words-support h2 {
+    margin-bottom: 20px;
+    margin-left: 120px;
+}
+
+.support-card {
+    background-color: #D9D9D954;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 510px;
+    margin-left: 120px;
+}
+
+.support-card p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #0047AB;
+    margin-bottom: 120px;
+}
+.right2{
+    margin-left: 255px;
+    margin-top: 35px;
+}
+.support-card img {
+    margin-right: 10px;
+}
+
+.btn-back{
+    margin-left: -1190px;
+}
+footer {
+    background-color: #000;
+    color: white;
+    padding: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.footer-left h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.footer-left a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-left p {
+    margin-top: 10px;
+}
+
+.footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 2;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-social {
+    grid-column: span 3;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-social p {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+}

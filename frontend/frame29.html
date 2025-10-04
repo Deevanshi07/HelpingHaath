@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <link rel="stylesheet" href="frame29.css">
+    <script>
+        // This function will listen for the "Enter" key press and redirect to frame1
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                window.location.href = 'frame1.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="payment-status">
+        <p>
+            Payment Successful 
+                <img src="images/pay_tick.png" alt="done" style="width: 32px; height: 32px;">
+        </p>
+    </div>
+    
+    <div class="thank-you-box">
+        <p>THANK YOU!</p>
+        <img src="images/logo.png" alt="Helping Haath Logo" class="logo">
+    </div>
+    <div class="return">Press Enter to return</div>
+</body>
+</html>

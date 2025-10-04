@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing users authen screen</title>
+    <link rel="stylesheet" href="frame6.css">
+    <style>
+        .required {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<!-- <form id="loginForm">
+  <input id="thaparid" name="email" type="email" placeholder="abc@thapar.edu" required>
+  <button type="submit">LOGIN</button>
+</form> -->
+
+<script src="app.js"></script>
+</body>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="logo">
+        </div>
+    </header>
+    <div class="background-overlay"></div>
+    <div class="auth-container">
+        <h2>AUTHENTICATION SCREEN</h2>
+        <form>
+            <div class="custom-select">
+                <label for="type">Member Type<span class="required">*</span></label>
+                <select name="type">
+                    <option value="Student">Student</option>
+                    <option value="TeachingStaff">Teaching Staff</option>
+                    <option value="NonTeachingStaff">Non-Teaching Staff</option>
+                </select>
+            </div>
+            <label for="thaparid">Thapar ID<span class="required">*</span></label>
+            <input type="text" placeholder="abc_beXX@thapar.edu" name="thaparid" style="width: 325px;" required>
+
+            <label for="password">Password<span class="required">*</span></label>
+            <input type="password" placeholder="Password" name="password" style="width: 325px;" required>
+
+            <div class="button-group">
+                <button type="submit">
+                    <a href="frame2.html" class="login-btn"
+                        style="text-decoration: none; color: black; font-weight: 600;">
+                        SUBMIT
+                    </a>
+                </button>
+                <button type="reset">RESET</button>
+            </div>
+
+            <div class="login-link">
+                Don't have an account? <a href="frame31.html" class="login-btn">Register</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            // Get the value of the email input field
+            var email = document.getElementById("thaparid").value;
+
+            // Define the pattern for Thapar Institute email IDs
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@thapar\.edu$/;
+
+            // Validate the email against the pattern
+            if (!emailPattern.test(email)) {
+                alert("Invalid email. Please enter a valid Thapar Institute email ID (e.g., abc@thapar.edu).");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if validation passes
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo-container img {
+    width: 50px;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3; 
+}
+
+.logo-container img {
+    width: 100px;
+}
+.hero-section h1 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 60.48px;
+    text-align: center;
+    margin-top: 40px;
+
+}
+
+.donation-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    width: 1122px;;
+    height: 220px;
+    padding: 25px;
+    box-shadow: 0 4px 10px #00000040;
+    background-color: #D9D9D954;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+}
+
+.image-placeholder {
+    background-color: #D9D9D9;
+    margin-right: 20px;
+    width: 370px;
+    height: 200px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
+.progress-bar {
+    width: 410px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+.progress-bar::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 100%;
+    background-color: #0047AB;
+    border-radius: 5px;
+}
+
+.donate-btn {
+    background-color: #f4c304;
+    border: none;
+    font-weight: 600;
+    padding: 20px 20px;
+    font-size: 1.2rem;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.donate-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.kindness-support {
+    text-align: center;
+    padding: 40px 0;
+    background-color: white;
+}
+
+.kindness-support h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.support-options {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.support-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #00000040;
+    text-align: center;
+    width: 367px;
+    height: 330px;
+    opacity: 0px;
+}
+
+.support-card h3 {
+    margin: 120px 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.support-card p {
+    margin-top: 70px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.backSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.back-button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.back-btn {
+    background-color: #D9D9D9;
+    border: none;
+    margin-left: 35px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 15px 20px;
+}
+
+.back-btn:hover {
+    background-color: #aaa;
+}
+
+.end{
+    margin-right:450px;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60.48px;
+    
+}
+footer {
+    background-color: #000;
+    color: white;
+    padding: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.footer-left h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.footer-left a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-left p {
+    margin-top: 10px;
+}
+
+.footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 2;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-social {
+    grid-column: span 3;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-social p {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
