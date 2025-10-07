@@ -1,22 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joy of Giving</title>
   <link rel="stylesheet" href="frame3.css" />
   <style>
     /* tiny helpers in case your CSS doesn’t have these */
-    .donation-cards { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .card { background:#fff; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.06); overflow:hidden; display:flex; flex-direction:column; }
-    .card img { width:100%; height:180px; object-fit:cover; background:#eee; }
-    .card-body { padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
-    .badge { display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:#eef3ff; color:#274; }
-    .progress-wrap{ background:#e9edf5; height:8px; border-radius:8px; overflow:hidden; }
-    .progress { height:100%; width:0; background:#1e58b6; transition:width .4s ease; }
-    .money { font-size:.9rem; color:#333; display:flex; justify-content:space-between; }
-    .donate-btn { margin:12px 16px 16px; width:calc(100% - 32px); background:#ffc400; border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; }
-    .empty { color:#666; padding:24px 0; text-align:center; }
+    .donation-cards {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .card-body {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: .8rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef3ff;
+      color: #274;
+    }
+
+    .progress-wrap {
+      background: #e9edf5;
+      height: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: #1e58b6;
+      transition: width .4s ease;
+    }
+
+    .money {
+      font-size: .9rem;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .donate-btn {
+      margin: 12px 16px 16px;
+      width: calc(100% - 32px);
+      background: #ffc400;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .empty {
+      color: #666;
+      padding: 24px 0;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -56,7 +122,8 @@
 
       <a href="frame28.html" class="login-btn" style="text-decoration: none; color: black;">
         <div class="support-card">
-          <h3><img src="images/frame3_religious.png" alt="religious" style="width:50px;height:40px;">RELIGIOUS COMMUNITIES</h3>
+          <h3><img src="images/frame3_religious.png" alt="religious" style="width:50px;height:40px;">RELIGIOUS
+            COMMUNITIES</h3>
           <p>Unity thrives when we support and respect every faith and belief.</p>
         </div>
       </a>
@@ -111,68 +178,65 @@
   <!-- If you already include app.js globally, keep that.
        This small script only renders the grid. -->
   <script>
-    const API = 'http://localhost:3000';
+  const API = 'http://localhost:3000';
 
-    function money(n){ 
-      if (typeof n !== 'number') n = Number(n||0);
-      return '₹ ' + n.toLocaleString('en-IN'); 
-    }
+  function money(n){ return '₹ ' + Number(n||0).toLocaleString('en-IN'); }
+  function percent(raised, goal){
+    const r = Number(raised||0), g = Number(goal||0);
+    return g ? Math.max(0, Math.min(100, Math.round((r/g)*100))) : 0;
+  }
 
-    function percent(raised, goal){
-      const r = Number(raised||0), g = Number(goal||0);
-      if (!g) return 0;
-      return Math.max(0, Math.min(100, Math.round((r/g)*100)));
-    }
+  async function loadActiveCampaigns() {
+    const grid  = document.getElementById('requestsGrid');
+    const empty = document.getElementById('requestsEmpty');
 
-    async function loadRequests() {
-      const grid = document.getElementById('requestsGrid');
-      const empty = document.getElementById('requestsEmpty');
+    try {
+      const res  = await fetch(`${API}/api/campaigns?status=active`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to load');
 
-      try {
-        const res = await fetch(`${API}/api/requests`);
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to load');
+      const items = data.campaigns || data || [];
+      grid.innerHTML = '';
 
-        const items = Array.isArray(data) ? data : (data.requests || []);
-        grid.innerHTML = '';
-
-        if (!items.length) {
-          empty.style.display = 'block';
-          return;
-        }
-        empty.style.display = 'none';
-
-        for (const it of items) {
-          const imgSrc = it.photoFileId ? `${API}/api/files/${it.photoFileId}/view` : 'images/placeholder.jpg';
-          const p = percent(it.raisedAmount, it.goalAmount);
-
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <img src="${imgSrc}" alt="${(it.name||'Person')}" onerror="this.src='images/placeholder.jpg'"/>
-            <div class="card-body">
-              <div class="badge">${it.type || 'Student'}</div>
-              <h3 style="margin:0;font-size:1.1rem;">${it.name || 'Anonymous'}</h3>
-              <p style="margin:0;color:#555">${(it.description || '').slice(0,120)}${(it.description||'').length>120?'…':''}</p>
-              <div class="money">
-                <span>${money(it.raisedAmount || 0)} raised</span>
-                <span>Goal: ${money(it.goalAmount || 0)}</span>
-              </div>
-              <div class="progress-wrap"><div class="progress" style="width:${p}%"></div></div>
-            </div>
-            <a href="frame23.html?id=${encodeURIComponent(it._id)}" class="login-btn" style="text-decoration:none;">
-              <button class="donate-btn">Donate Now</button>
-            </a>
-          `;
-          grid.appendChild(card);
-        }
-      } catch (err) {
-        console.error(err);
-        grid.innerHTML = '<div class="empty">Could not load requests.</div>';
+      if (!items.length) {
+        empty.style.display = 'block';
+        return;
       }
-    }
+      empty.style.display = 'none';
 
-    document.addEventListener('DOMContentLoaded', loadRequests);
-  </script>
+      for (const c of items) {
+        const imgSrc = c.photoFileId ? `${API}/api/files/${c.photoFileId}/view` : 'images/placeholder.jpg';
+        const p = percent(c.raised || c.raisedAmount, c.goal || c.goalAmount);
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${imgSrc}" alt="${c.title || 'Campaign'}" onerror="this.src='images/placeholder.jpg'"/>
+          <div class="card-body">
+            <div class="badge">${c.type || 'Student'}</div>
+            <h3 style="margin:0">${c.title || c.name || 'Help needed'}</h3>
+            <p style="margin:.25rem 0;color:#555">${(c.description||'').slice(0,120)}${(c.description||'').length>120?'…':''}</p>
+            <div class="money">
+              <span>${money(c.raised || 0)} raised</span>
+              <span>Goal: ${money(c.goal || 0)}</span>
+            </div>
+            <div class="progress-wrap"><div class="progress" style="width:${p}%"></div></div>
+          </div>
+          <a href="frame23.html?id=${encodeURIComponent(c._id)}" class="login-btn" style="text-decoration:none;">
+            <button class="donate-btn">Donate Now</button>
+          </a>
+        `;
+        grid.appendChild(card);
+      }
+    } catch (err) {
+      console.error(err);
+      grid.innerHTML = '<div class="empty">Could not load requests.</div>';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadActiveCampaigns);
+</script>
+
 </body>
+
 </html>
