@@ -1,140 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joy of Giving</title>
-    <link rel="stylesheet" href="frame3.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joy of Giving</title>
+  <link rel="stylesheet" href="frame3.css" />
+  <style>
+    /* tiny helpers in case your CSS doesn’t have these */
+    .donation-cards { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .card { background:#fff; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.06); overflow:hidden; display:flex; flex-direction:column; }
+    .card img { width:100%; height:180px; object-fit:cover; background:#eee; }
+    .card-body { padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
+    .badge { display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:#eef3ff; color:#274; }
+    .progress-wrap{ background:#e9edf5; height:8px; border-radius:8px; overflow:hidden; }
+    .progress { height:100%; width:0; background:#1e58b6; transition:width .4s ease; }
+    .money { font-size:.9rem; color:#333; display:flex; justify-content:space-between; }
+    .donate-btn { margin:12px 16px 16px; width:calc(100% - 32px); background:#ffc400; border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; }
+    .empty { color:#666; padding:24px 0; text-align:center; }
+  </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Logo">
-        </div>
-    </header>
-
-    <section class="hero-section">
-        <h1>Joy of Giving is the Greatest Joy of Life</h1>
-        <div class="donation-cards">
-            <div class="card">
-                <div class="card-content">
-                    <div class="image-placeholder"></div>
-                    <div class="progress-bar"></div>
-                </div>
-                <a href="frame23.html" class="login-btn" style="color: black; text-decoration: none; "><button
-                        class="donate-btn" style="color: black;">Donate Now
-                    </button></a>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <div class="image-placeholder"></div>
-                    <div class="progress-bar"></div>
-                </div>
-                <a href="frame23.html" class="login-btn" style="color: black; text-decoration: none; "><button
-                        class="donate-btn" style="color: black;">Donate Now
-                    </button></a>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <div class="image-placeholder"></div>
-                    <div class="progress-bar"></div>
-                </div>
-                <a href="frame23.html" class="login-btn" style="color: black; text-decoration: none; "><button
-                        class="donate-btn" style="color: black;">Donate Now
-                    </button></a>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <div class="image-placeholder"></div>
-                    <div class="progress-bar"></div>
-                </div>
-                <a href="frame23.html" class="login-btn" style="color: black; text-decoration: none; "><button
-                        class="donate-btn" style="color: black;">Donate Now
-                    </button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="kindness-support">
-        <h2>Show your Kindness and Support</h2>
-        <div class="support-options">
-            <a href="frame3.html" class="login-btn" style="text-decoration: none; color: black;">
-                <div class="support-card">
-                    <h3><img src="images/frame3_student.png" alt="student"style="width: 48px; height: 48px;">STUDENT/STAFF</h3>
-                    <p>Your support is the spark that lights up someone's life.</p>
-                </div>
-            </a>
-
-            <a href="frame27.html" class="login-btn" style="text-decoration: none; color: black;">
-                <div class="support-card">
-                    <h3><img src="images/frame3_pet.png" alt="pets" style="width: 63px; height: 63px;">PETS</h3>
-                    <p>Compassion on campus begins with kindness to every creature, big or small.</p>
-                </div>
-            </a>
-            <a href="frame28.html" class="login-btn" style="text-decoration: none; color: black;">
-                <div class="support-card">
-                    <h3><img src="images/frame3_religious.png" alt="religious" style="width: 50px; height: 40px;">RELIGIOUS
-                        COMMUNITIES</h3>
-                    <p>Unity thrives when we support and respect every faith and belief.</p>
-                </div>
-            </a>
-
-        </div>
-    </section>
-    <div class="backSection">
-        <div class="back-button-container">
-            <button class="back-btn"><a href="frame2.html" class="login-btn"
-                    style="text-decoration: none; color: black;">← Back</a></button>
-        </div>
-        <p class="end">Join Us in Making a Difference</p>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo">
     </div>
+  </header>
 
-    <footer>
-        <div class="footer-container">
-            <!-- Left Section -->
-            <div class="footer-left">
-                <h2>HELPINGHAATH.</h2>
-                <a href="mailto:ngo@thapar.edu">ngo@thapar.edu</a>
-                <a href="tel:+91XXXXXXXXXX">+91XXXXXXXXXX</a>
-                <p>Thapar University, Patiala, Punjab</p>
-            </div>
+  <section class="hero-section">
+    <h1>Joy of Giving is the Greatest Joy of Life</h1>
 
-            <!-- right section  -->
-            <div class="footer-right">
-                <div class="footer-links">
-                    <a href="#">Home</a>
-                    <a href="#">Visual</a>
-                    <a href="#">Blog/News</a>
-                </div>
-                <div class="footer-links">
-                    <a href="#">How It Works</a>
-                    <a href="#">Get Involved</a>
-                    <a href="#">Contact Us</a>
-                </div>
-                <div class="footer-links">
-                    <a href="#">About Us</a>
-                    <a href="#">Impact</a>
-                </div>
-                <div class="footer-social">
-                    <span>Follow us:</span>
-                    <span>
-                        <a href="#"><img src="images/instagram.png" alt="instagram"
-                                style="width: 20px; height: 20px;"></a>
-                        <a href="#"><img src="images/twitter.png" alt="twitter" style="width: 25px; height: 25px;"></a>
-                        <a href="#"><img src="images/facebook.jpg" alt="facebook"
-                                style="width: 20px; height: 20px;"></a>
-                    </span>
+    <!-- Dynamic requests/cards will render here -->
+    <div id="requestsGrid" class="donation-cards">
+      <!-- JS fills this -->
+    </div>
+    <div id="requestsEmpty" class="empty" style="display:none;">No active requests yet.</div>
+  </section>
 
-                </div>
-            </div>
+  <section class="kindness-support">
+    <h2>Show your Kindness and Support</h2>
+    <div class="support-options">
+      <a href="frame3.html" class="login-btn" style="text-decoration: none; color: black;">
+        <div class="support-card">
+          <h3><img src="images/frame3_student.png" alt="student" style="width:48px;height:48px;">STUDENT/STAFF</h3>
+          <p>Your support is the spark that lights up someone's life.</p>
         </div>
-    </footer>
-</body>
+      </a>
 
+      <a href="frame27.html" class="login-btn" style="text-decoration: none; color: black;">
+        <div class="support-card">
+          <h3><img src="images/frame3_pet.png" alt="pets" style="width:63px;height:63px;">PETS</h3>
+          <p>Compassion on campus begins with kindness to every creature, big or small.</p>
+        </div>
+      </a>
+
+      <a href="frame28.html" class="login-btn" style="text-decoration: none; color: black;">
+        <div class="support-card">
+          <h3><img src="images/frame3_religious.png" alt="religious" style="width:50px;height:40px;">RELIGIOUS COMMUNITIES</h3>
+          <p>Unity thrives when we support and respect every faith and belief.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="backSection">
+    <div class="back-button-container">
+      <button class="back-btn">
+        <a href="frame2.html" class="login-btn" style="text-decoration: none; color: black;">← Back</a>
+      </button>
+    </div>
+    <p class="end">Join Us in Making a Difference</p>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2>HELPINGHAATH.</h2>
+        <a href="mailto:ngo@thapar.edu">ngo@thapar.edu</a>
+        <a href="tel:+91XXXXXXXXXX">+91XXXXXXXXXX</a>
+        <p>Thapar University, Patiala, Punjab</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Visual</a>
+          <a href="#">Blog/News</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">How It Works</a>
+          <a href="#">Get Involved</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Impact</a>
+        </div>
+        <div class="footer-social">
+          <span>Follow us:</span>
+          <span>
+            <a href="#"><img src="images/instagram.png" alt="instagram" style="width:20px;height:20px;"></a>
+            <a href="#"><img src="images/twitter.png" alt="twitter" style="width:25px;height:25px;"></a>
+            <a href="#"><img src="images/facebook.jpg" alt="facebook" style="width:20px;height:20px;"></a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- If you already include app.js globally, keep that.
+       This small script only renders the grid. -->
+  <script>
+    const API = 'http://localhost:3000';
+
+    function money(n){ 
+      if (typeof n !== 'number') n = Number(n||0);
+      return '₹ ' + n.toLocaleString('en-IN'); 
+    }
+
+    function percent(raised, goal){
+      const r = Number(raised||0), g = Number(goal||0);
+      if (!g) return 0;
+      return Math.max(0, Math.min(100, Math.round((r/g)*100)));
+    }
+
+    async function loadRequests() {
+      const grid = document.getElementById('requestsGrid');
+      const empty = document.getElementById('requestsEmpty');
+
+      try {
+        const res = await fetch(`${API}/api/requests`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to load');
+
+        const items = Array.isArray(data) ? data : (data.requests || []);
+        grid.innerHTML = '';
+
+        if (!items.length) {
+          empty.style.display = 'block';
+          return;
+        }
+        empty.style.display = 'none';
+
+        for (const it of items) {
+          const imgSrc = it.photoFileId ? `${API}/api/files/${it.photoFileId}/view` : 'images/placeholder.jpg';
+          const p = percent(it.raisedAmount, it.goalAmount);
+
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${imgSrc}" alt="${(it.name||'Person')}" onerror="this.src='images/placeholder.jpg'"/>
+            <div class="card-body">
+              <div class="badge">${it.type || 'Student'}</div>
+              <h3 style="margin:0;font-size:1.1rem;">${it.name || 'Anonymous'}</h3>
+              <p style="margin:0;color:#555">${(it.description || '').slice(0,120)}${(it.description||'').length>120?'…':''}</p>
+              <div class="money">
+                <span>${money(it.raisedAmount || 0)} raised</span>
+                <span>Goal: ${money(it.goalAmount || 0)}</span>
+              </div>
+              <div class="progress-wrap"><div class="progress" style="width:${p}%"></div></div>
+            </div>
+            <a href="frame23.html?id=${encodeURIComponent(it._id)}" class="login-btn" style="text-decoration:none;">
+              <button class="donate-btn">Donate Now</button>
+            </a>
+          `;
+          grid.appendChild(card);
+        }
+      } catch (err) {
+        console.error(err);
+        grid.innerHTML = '<div class="empty">Could not load requests.</div>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadRequests);
+  </script>
+</body>
 </html>

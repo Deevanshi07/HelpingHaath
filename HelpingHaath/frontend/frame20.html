@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!-- <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,7 +76,7 @@
 
 
 
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +90,7 @@
       margin-left: 5px;
     }
   </style>
-  <!-- Razorpay Checkout Script -->
+  Razorpay Checkout Script 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
@@ -198,4 +198,72 @@
 
   <script src="app.js"></script>
 </body>
+</html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Form</title>
+  <link rel="stylesheet" href="frame20.css" />
+  <style>
+    .required { color: red; margin-left: 5px; }
+  </style>
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="logo">
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Payment Details</h2>
+
+      <!-- IMPORTANT: id="donationForm" -->
+      <form id="donationForm">
+        <div class="form-group">
+          <label for="name">Name<span class="required">*</span></label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone<span class="required">*</span></label>
+          <input type="text" id="phone" placeholder="Enter your phone number" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email<span class="required">*</span></label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount<span class="required">*</span></label>
+          <input type="number" id="amount" placeholder="₹ Enter Amount" required />
+        </div>
+
+        <div class="form-group">
+          <label for="support">Words of Support</label>
+          <textarea id="support" style="width: 100%; height: 96px;" placeholder="Please share words of support..."></textarea>
+        </div>
+
+        <div class="payNow">
+          <div class="payment-icons">
+            <img src="images/frame20_payment_modes.png" alt="Payment Methods" />
+          </div>
+          <button type="submit" class="pay-btn">Pay Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Your global wiring (handles submit + Razorpay) -->
+  <script src="app.js"></script>
+</body>
 </html>
+
